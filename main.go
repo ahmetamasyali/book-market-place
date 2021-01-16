@@ -3,8 +3,6 @@ package main
 import (
 	. "./config"
 	. "./controller"
-	_ "./dao"
-	. "./service"
 	"log"
 	"net/http"
 )

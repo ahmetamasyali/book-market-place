@@ -17,10 +17,10 @@ var PersonDao IPersonDao = PersonDaoImpl{}
 
 
 func (PersonDaoImpl) LoadById(id int) *Person {
-	var person *Person
-	GormDB.First(person, strconv.Itoa(id))
+	var person Person
+	GormDB.First(&person, strconv.Itoa(id))
 
-	return person
+	return &person
 }
 
 func (PersonDaoImpl) Create(person *Person) {
