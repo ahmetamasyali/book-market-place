@@ -2,6 +2,8 @@ package main
 
 import (
 	. "./config"
+	. "./controller"
+	_ "./dao"
 	. "./service"
 	"log"
 	"net/http"
@@ -11,10 +13,11 @@ import (
 func main() {
 	InitDb()
 
-	http.HandleFunc("/createPerson", PersonService.CreatePersonHandler)
-	http.HandleFunc("/createBook", BookService.CreateBookHandler)
+	PersonService.LoadById(1)
+	http.HandleFunc("/createPerson", PersonController.CreatePersonHandler)
+	http.HandleFunc("/createBook", BookController.CreateBookHandler)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":8082", nil))
 }
 
 
