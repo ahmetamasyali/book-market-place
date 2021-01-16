@@ -11,7 +11,7 @@ type IBookService interface {
 
 type BookServiceImpl struct {}
 
-var BookService IBookService = (*BookServiceImpl)(nil)
+var BookService IBookService = BookServiceImpl{}
 
 func (BookServiceImpl) Create(book *Book) {
 	BookDao.Create(book)

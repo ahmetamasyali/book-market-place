@@ -13,7 +13,7 @@ type IPersonDao interface {
 
 type PersonDaoImpl struct {}
 
-var PersonDao IPersonDao = (*PersonDaoImpl)(nil)
+var PersonDao IPersonDao = PersonDaoImpl{}
 
 
 func (PersonDaoImpl) LoadById(id int) *Person {

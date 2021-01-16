@@ -11,7 +11,7 @@ type IBookDao interface {
 
 type BookDaoImpl struct {}
 
-var BookDao IBookDao = (*BookDaoImpl)(nil)
+var BookDao IBookDao = BookDaoImpl{}
 
 func (BookDaoImpl) Create(book *Book) {
 	GormDB.Create(book)

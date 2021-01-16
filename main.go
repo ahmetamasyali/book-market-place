@@ -13,11 +13,10 @@ import (
 func main() {
 	InitDb()
 
-	PersonService.LoadById(1)
 	http.HandleFunc("/createPerson", PersonController.CreatePersonHandler)
 	http.HandleFunc("/createBook", BookController.CreateBookHandler)
 
-	log.Fatal(http.ListenAndServe(":8082", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 

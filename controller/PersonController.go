@@ -14,7 +14,7 @@ type IPersonController interface {
 
 type PersonControllerImpl struct {}
 
-var PersonController IPersonController = (*PersonControllerImpl)(nil)
+var PersonController IPersonController = PersonControllerImpl{}
 
 func (PersonControllerImpl) CreatePersonHandler(responseWriter http.ResponseWriter, req *http.Request) {
 	if req.Method != "POST" {

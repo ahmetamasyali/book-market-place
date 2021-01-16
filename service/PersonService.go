@@ -12,8 +12,7 @@ type IPersonService interface {
 
 type PersonServiceImpl struct {}
 
-var PersonService IPersonService = (*PersonServiceImpl)(nil)
-
+var PersonService IPersonService = PersonServiceImpl{}
 
 func (PersonServiceImpl) LoadById(id int) *Person {
 	return PersonDao.LoadById(id)

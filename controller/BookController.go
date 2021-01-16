@@ -15,7 +15,7 @@ type IBookController interface {
 
 type BookControllerImpl struct {}
 
-var BookController IBookController = (*BookControllerImpl)(nil)
+var BookController IBookController = BookControllerImpl{}
 
 func (BookControllerImpl) CreateBookHandler(responseWriter http.ResponseWriter, req *http.Request) {
 	if req.Method != "POST" {
