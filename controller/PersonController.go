@@ -14,7 +14,16 @@ type IPersonController interface {
 
 type PersonControllerImpl struct {}
 
-var PersonController IPersonController = PersonControllerImpl{}
+var PersonController IPersonController = personControllerConstructor()
+
+func personControllerConstructor() *PersonControllerImpl {
+	controller := &PersonControllerImpl{}
+
+	//register end points
+	http.HandleFunc("/createPerson", controller.CreatePersonHandler)
+
+	return controller
+}
 
 func (PersonControllerImpl) CreatePersonHandler(responseWriter http.ResponseWriter, req *http.Request) {
 	if req.Method != "POST" {
